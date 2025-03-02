@@ -116,47 +116,50 @@ router.post("/send-email", async (req, res) => {
 
 module.exports = router;
 
-const ThankYouPage = () => {
-  const bodyStyle = {
-    margin: 0,
-    padding: '1rem',
-    backgroundColor: '#f0f0f0',
-    fontFamily: 'Arial, sans-serif',
-    color: '#333',
-    minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  };
+const express = require("express");
+const router = express.Router();
 
-  const containerStyle = {
-    maxWidth: '600px',
-    margin: 'auto',
-    background: '#fff',
-    padding: '2rem',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    textAlign: 'center'
-  };
-
-  const headingStyle = {
-    color: '#0066cc',
-    marginBottom: '1rem'
-  };
-
-  return (
-    <div style={bodyStyle}>
-      <div style={containerStyle}>
-        <h1 style={headingStyle}>Thank You!</h1>
-        <p>Your registration has been received and you'll hear from us soon.</p>
-        <p>
-          <a href="/">Return to Home Page</a>
-        </p>
-      </div>
+router.get("/", (req, res) => {
+  const html = `
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 2rem;
+        background-color: #f0f0f0;
+        color: #333;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        background: #fff;
+        padding: 2rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      h1 {
+        color: #0066cc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Thank You!</h1>
+      <p>Your registration has been received and you'll hear from us soon.</p>
+      <p><a href="/">Return to Home Page</a></p>
     </div>
-  );
-};
+  </body>
+  </html>
+  `;
+  res.send(html);
+});
 
-export default ThankYouPage;
+module.exports = router;
 
   </script>
 </body>
