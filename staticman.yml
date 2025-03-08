@@ -1,0 +1,42 @@
+#allowedFields: ['email', 'subject', 'message']
+#requiredFields: ['email', 'subject']
+#branch: 'main'         # branch from which page is built
+#commitMessage: "New waiting list registration"
+#filename: "entry-{timestamp}"
+#format: "yml"
+#moderation: false      # approve registrations manually
+#path: "_data/registrations"
+
+# staticman.yml
+
+# Top-level configuration
+comments:
+  # Where new entries will be stored
+  path: "entries/{yyyy}-{mm}-{dd}-{slug}.md"
+
+  # The name of the branch in your repo where the data will be committed
+  branch: "main"
+
+  # Required fields
+  requiredFields: ["email", "subject", "message"]
+
+  # Front-matter for your new data files
+  frontMatter:
+    date: date
+    email: fields.email
+    subject: fields.subject
+    message: fields.message
+
+  # Format to store data: (choose 'json' or 'yaml', etc. Some use 'frontmatter' if it's a Jekyll/Hugo site.)
+  format: "frontmatter"
+
+# OPTIONAL: Set up the option to moderate entries before merging
+moderation: true
+
+# OPTIONAL: Try turning on generated fields or reCAPTCHA if you need spam protection
+reCaptcha:
+  enabled: false
+  siteKey: ""
+  secret: ""
+
+# That’s enough to get started in many cases
