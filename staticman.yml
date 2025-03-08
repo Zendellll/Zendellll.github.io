@@ -1,16 +1,7 @@
-#allowedFields: ['email', 'subject', 'message']
-#requiredFields: ['email', 'subject']
-#branch: 'main'         # branch from which page is built
-#commitMessage: "New waiting list registration"
-#filename: "entry-{timestamp}"
-#format: "yml"
-#moderation: false      # approve registrations manually
-#path: "_data/registrations"
-
 # staticman.yml
 
 # Top-level configuration
-comments:
+entries:
   # Where new entries will be stored
   path: "entries/{yyyy}-{mm}-{dd}-{slug}.md"
 
@@ -32,11 +23,3 @@ comments:
 
 # OPTIONAL: Set up the option to moderate entries before merging
 moderation: true
-
-# OPTIONAL: Try turning on generated fields or reCAPTCHA if you need spam protection
-reCaptcha:
-  enabled: false
-  siteKey: ""
-  secret: ""
-
-# That’s enough to get started in many cases
